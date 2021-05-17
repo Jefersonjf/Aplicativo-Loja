@@ -5,6 +5,8 @@
  */
 package aplicativo;
 
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Deferson
@@ -18,6 +20,10 @@ public class Aplicativo {
         
         new TelaLogin().setVisible(true);
         
+             new TelaCadastroProduto().setVisible(true);
+        
     }
+    
+   
     
 }

@@ -252,5 +252,6 @@ public class TelaLogin extends javax.swing.JFrame {
         // Percorrer a lista de usuários e ver se tem alguem com o login e a senha igual aos parametros
                 
         return login.equals("usuario") && senha.equals("123");
+      
     }
 }
