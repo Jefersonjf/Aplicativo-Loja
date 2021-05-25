@@ -5,6 +5,11 @@
  */
 package aplicativo;
 
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import models.ClienteModel;
+import statics.BancoLocalFake;
+
 /**
  *
  * @author Deferson
@@ -16,6 +21,20 @@ public class TelaConsultaCliente extends javax.swing.JInternalFrame {
      */
     public TelaConsultaCliente() {
         initComponents();
+        DefaultTableModel dtmCliente = (DefaultTableModel) jtCliente.getModel();
+
+        int numeroDoClienteCadastrado = BancoLocalFake.consultarclientes.size();
+
+        for (int i = 0; i < numeroDoClienteCadastrado; i++) {
+
+            ClienteModel cliente = BancoLocalFake.consultarclientes.get(i);
+
+            Object[] dados = {cliente.nomeCompleto, cliente.data, cliente.cpf, cliente.email};
+
+            dtmCliente.addRow(dados);
+
+        }
+
     }
 
     /**
@@ -32,6 +51,7 @@ public class TelaConsultaCliente extends javax.swing.JInternalFrame {
         jTextField1 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
 
         setClosable(true);
         setTitle("Tela Consultar Cliente");
@@ -63,6 +83,8 @@ public class TelaConsultaCliente extends javax.swing.JInternalFrame {
             }
         });
 
+        jButton3.setText("Editar");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -73,13 +95,15 @@ public class TelaConsultaCliente extends javax.swing.JInternalFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 395, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton2, javax.swing.GroupLayout.Alignment.TRAILING))))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(jButton3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jButton2)))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -91,9 +115,11 @@ public class TelaConsultaCliente extends javax.swing.JInternalFrame {
                     .addComponent(jButton1))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
-                .addComponent(jButton2)
-                .addContainerGap())
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton2)
+                    .addComponent(jButton3))
+                .addContainerGap(22, Short.MAX_VALUE))
         );
 
         pack();
@@ -101,14 +127,37 @@ public class TelaConsultaCliente extends javax.swing.JInternalFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
+
+        int numeroClienteselecionado = jtCliente.getSelectedRow();
+
+        if (numeroClienteselecionado != -1) {
+
+            DefaultTableModel dtmCliente = (DefaultTableModel) jtCliente.getModel();
+            dtmCliete.removeRow(numeroClienteselecionado);
+            BancoLocalFake.consultarclientes.remove(numeroClienteselecionado);
+        } else {
+            JOptionPane.showMessageDialog(null, "selecione um cliente para excluir");
+        }
+
     }//GEN-LAST:event_jButton2ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTable jtCliente;
     // End of variables declaration//GEN-END:variables
+
+      private static class dtmCliete {
+
+        private static void removeRow(int numeroClienteselecionado) {
+            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        }
+
+        public dtmCliete() {
+        }
+    }
 }

@@ -3,10 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/C:/Users/Deferson/Documents/NetBeansProjects/Aplicativo/src/statics/BancoLocalFake.java</file>
             <file>file:/C:/Users/Deferson/Documents/NetBeansProjects/Aplicativo/src/aplicativo/TelaPrincipal.java</file>
-            <file>file:/C:/Users/Deferson/Documents/NetBeansProjects/Aplicativo/src/aplicativo/Aplicativo.java</file>
+            <file>file:/C:/Users/Deferson/Documents/NetBeansProjects/Aplicativo/src/aplicativo/TelaCadastroCliente.java</file>
             <file>file:/C:/Users/Deferson/Documents/NetBeansProjects/Aplicativo/src/aplicativo/TelaLogin.java</file>
-            <file>file:/C:/Users/Deferson/Documents/NetBeansProjects/Aplicativo/src/aplicativo/TelaCadastroProduto.java</file>
+            <file>file:/C:/Users/Deferson/Documents/NetBeansProjects/Aplicativo/src/aplicativo/TelaConsultaCliente.java</file>
+            <file>file:/C:/Users/Deferson/Documents/NetBeansProjects/Aplicativo/src/aplicativo/TelaConsultarProdutos.java</file>
         </group>
     </open-files>
 </project-private>
