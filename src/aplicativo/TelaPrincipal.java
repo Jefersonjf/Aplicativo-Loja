@@ -18,6 +18,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
      */
     public TelaPrincipal() {
         initComponents();
+        setExtendedState(MAXIMIZED_BOTH);
+        
     }
 
     /**
@@ -163,7 +165,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
         
-       TelaCadastroProduto telaCadPro = new TelaCadastroProduto();
+       TelaCadastroProduto telaCadPro = new TelaCadastroProduto(null);
        jDesktopPane1.add(telaCadPro);
        telaCadPro.setVisible(true);
         

@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package aplicativo;
 
 import java.util.List;
@@ -11,15 +7,10 @@ import javax.swing.table.DefaultTableModel;
 import models.ProdutoModel;
 import statics.BancoLocalFake;
 
-/**
- *
- * @author Deferson
- */
+
 public class TelaConsultarProdutos extends javax.swing.JInternalFrame {
 
-    /**
-     * Creates new form TelaConsultarProdutos
-     */
+  
     public TelaConsultarProdutos() {
 
         initComponents();
@@ -85,6 +76,11 @@ public class TelaConsultarProdutos extends javax.swing.JInternalFrame {
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
+            }
+        });
+        jtProdutos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jtProdutosMouseClicked(evt);
             }
         });
         jScrollPane1.setViewportView(jtProdutos);
@@ -172,11 +168,25 @@ public class TelaConsultarProdutos extends javax.swing.JInternalFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
 
-    int numeroProdutoSelecionado = jtProdutos.getSelectedRow();
-    
+        int numeroProdutoSelecionado = jtProdutos.getSelectedRow();
+        if (numeroProdutoSelecionado != -1) {
+            
+           ProdutoModel produto = BancoLocalFake.produtosCadastrados.get(numeroProdutoSelecionado);
+           
+           TelaCadastroProduto telaCadastroProduto = new TelaCadastroProduto(produto);
+           telaCadastroProduto.setVisible(true);
+           getParent().add(telaCadastroProduto);
+           
+        } else {
+            JOptionPane.showMessageDialog(null, "Selecione um produto para alterar");
+        }
 
 
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jtProdutosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtProdutosMouseClicked
+     
+    }//GEN-LAST:event_jtProdutosMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

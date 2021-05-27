@@ -20,7 +20,7 @@ public class Aplicativo {
         
         new TelaLogin().setVisible(true);
         
-             new TelaCadastroProduto().setVisible(true);
+             new TelaCadastroProduto(null).setVisible(true);
         
     }
     
