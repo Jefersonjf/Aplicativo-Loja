@@ -157,7 +157,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
         
-        TelaCadastroCliente telaCadCli = new TelaCadastroCliente();
+       TelaCadastroCliente telaCadCli = new TelaCadastroCliente(null);
         jDesktopPane1.add(telaCadCli);
         telaCadCli.setVisible(true);
 

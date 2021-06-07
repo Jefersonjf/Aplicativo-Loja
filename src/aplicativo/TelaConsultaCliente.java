@@ -5,6 +5,7 @@
  */
 package aplicativo;
 
+import java.awt.PopupMenu;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import models.ClienteModel;
@@ -16,11 +17,10 @@ import statics.BancoLocalFake;
  */
 public class TelaConsultaCliente extends javax.swing.JInternalFrame {
 
-    /**
-     * Creates new form TelaConsultaCliente
-     */
     public TelaConsultaCliente() {
+
         initComponents();
+
         DefaultTableModel dtmCliente = (DefaultTableModel) jtCliente.getModel();
 
         int numeroDoClienteCadastrado = BancoLocalFake.consultarclientes.size();
@@ -138,8 +138,11 @@ public class TelaConsultaCliente extends javax.swing.JInternalFrame {
         if (numeroClienteselecionado != -1) {
 
             DefaultTableModel dtmCliente = (DefaultTableModel) jtCliente.getModel();
-            dtmCliete.removeRow(numeroClienteselecionado);
+            dtmCliente.removeRow(numeroClienteselecionado);
+                       
+
             BancoLocalFake.consultarclientes.remove(numeroClienteselecionado);
+
         } else {
             JOptionPane.showMessageDialog(null, "selecione um cliente para excluir");
         }
@@ -147,7 +150,23 @@ public class TelaConsultaCliente extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
+
+        int numeroClienteselecionado = jtCliente.getSelectedRow();
+        if (numeroClienteselecionado != -1) {
+            
+            
+            ClienteModel cliente = BancoLocalFake.consultarclientes.get(numeroClienteselecionado);
+
+            TelaCadastroCliente telaCadastroClinete = new TelaCadastroCliente(cliente);
+            telaCadastroClinete.setVisible(true);
+            //PopupMenu telaCadastroCliente = null;
+            getParent().add(telaCadastroClinete);
+
+        } else {
+            JOptionPane.showMessageDialog(null, "Selecione um cliente para alterar");
+        }
+
+
     }//GEN-LAST:event_jButton3ActionPerformed
 
 
@@ -160,13 +179,15 @@ public class TelaConsultaCliente extends javax.swing.JInternalFrame {
     private javax.swing.JTable jtCliente;
     // End of variables declaration//GEN-END:variables
 
-      private static class dtmCliete {
+   private static class dtmCliete {
+       
+   }
+       
+   }
 
-        private static void removeRow(int numeroClienteselecionado) {
-            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-        }
+  
 
-        public dtmCliete() {
-        }
-    }
-}
+        //public dtmCliete() {
+        //}
+    //}
+//}

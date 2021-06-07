@@ -6,6 +6,7 @@
 package aplicativo;
 
 import models.ClienteModel;
+import models.ProdutoModel;
 import statics.BancoLocalFake;
 
 /**
@@ -14,11 +15,46 @@ import statics.BancoLocalFake;
  */
 public class TelaCadastroCliente extends javax.swing.JInternalFrame {
 
-    /**
-     * Creates new form TelaCadastroCliente
-     */
-    public TelaCadastroCliente() {
+    ClienteModel cliente;
+    
+    public TelaCadastroCliente(ClienteModel _cliente) {
+        
         initComponents();
+        
+        if (_cliente == null) {
+            return;
+        }
+        
+        this.preencherFormulario(_cliente);
+        this.alterarNomeComponentes();
+                
+    }
+
+    TelaCadastroCliente() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+    private void alterarNomeComponentes() {
+        this.jButton1.setText("Atualizar");
+        this.title = "Atualizar produto";
+    
+    }
+    
+    private void preencherFormulario (ClienteModel _cliente) {
+        this.cliente = _cliente;
+        txtNome.setText(this.cliente.nomeCompleto);
+        txtData.setText(this.cliente.data);
+        txtCPF.setText(this.cliente.cpf);
+        txtTelefone.setText(this.cliente.telefone);
+        txtCelular.setText(this.cliente.celular);
+        txtEmail.setText(this.cliente.email);
+        
+    }  
+    
+    
+
+   private void TelaCadastroCliente(ClienteModel cliente) {
+       throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.    
     }
 
     /**
@@ -223,7 +259,31 @@ public class TelaCadastroCliente extends javax.swing.JInternalFrame {
         
         ClienteModel cliente = new ClienteModel (nomeCompleto, dataNacimento, cpf, telefone, celular, Email);
         
-        BancoLocalFake.consultarclientes.add(cliente);
+        if (this.cliente == null) {
+        
+            BancoLocalFake.consultarclientes.add(cliente);
+                        
+        } else {
+            int tamanhoLista = BancoLocalFake.consultarclientes.size();
+            
+            for (int i = 0; i < tamanhoLista; i++) {
+                
+                ClienteModel clienteAtual = BancoLocalFake.consultarclientes.get(i);
+                
+                if (clienteAtual.equals(this.cliente)) {
+                    ClienteModel clienteNovo;
+                    
+                    BancoLocalFake.consultarclientes.set(i, cliente);
+                    
+                    
+                }
+                
+                
+            }
+            
+        }
+        
+        
                               
         
     }//GEN-LAST:event_jButton1ActionPerformed

@@ -14,4 +14,8 @@ public class BancoLocalFake {
     public static ProdutoModel produtosCadastrados(int numeroProdutoSelecionado) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+    
+    public static ClienteModel clientecadastrados(int numeroClienteSelecionado) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
 }
