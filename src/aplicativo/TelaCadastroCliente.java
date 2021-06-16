@@ -131,9 +131,9 @@ public class TelaCadastroCliente extends javax.swing.JInternalFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(5, 5, 5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(jLabel3))
@@ -241,7 +241,7 @@ public class TelaCadastroCliente extends javax.swing.JInternalFrame {
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton1)
-                .addGap(0, 19, Short.MAX_VALUE))
+                .addGap(0, 17, Short.MAX_VALUE))
         );
 
         pack();
@@ -258,6 +258,8 @@ public class TelaCadastroCliente extends javax.swing.JInternalFrame {
         String Email = txtEmail.getText();
         
         ClienteModel cliente = new ClienteModel (nomeCompleto, dataNacimento, cpf, telefone, celular, Email);
+        
+        limparCampo();
         
         if (this.cliente == null) {
         
@@ -315,5 +317,15 @@ public class TelaCadastroCliente extends javax.swing.JInternalFrame {
         
         public dtmCliente(){
         }
+    }
+    
+    public void limparCampo(){
+        
+        txtNome.setText("");
+        txtData.setText("");
+        txtCPF.setText("");
+        txtTelefone.setText("");
+        txtCelular.setText("");
+        txtEmail.setText("");
     }
 }

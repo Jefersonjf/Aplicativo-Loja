@@ -1,17 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package aplicativo;
 
 import models.ProdutoModel;
 import statics.BancoLocalFake;
 
-/**
- *
- * @author Deferson
- */
+
 public class TelaCadastroProduto extends javax.swing.JInternalFrame {
 
     ProdutoModel produto;
@@ -144,12 +137,15 @@ public class TelaCadastroProduto extends javax.swing.JInternalFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
+               
         String nomeMercadoria = txtMercadoria.getText();
         String codigo = txtCodigo.getText();
         float valor = Float.parseFloat(txtValor.getText());
         int estoque = Integer.parseInt(txtEstoque.getText());
 
         ProdutoModel produtoNovo = new ProdutoModel(codigo, nomeMercadoria, valor, estoque);
+        
+         limparCampos();
 
         if (this.produto == null) {
 
@@ -166,9 +162,10 @@ public class TelaCadastroProduto extends javax.swing.JInternalFrame {
                 if (produtoAtual.equals(this.produto)) {
 
                     BancoLocalFake.produtosCadastrados.set(i, produtoNovo);
-
+                                                       
                 }
-
+            
+                       
             }
             
         }
@@ -205,5 +202,13 @@ public class TelaCadastroProduto extends javax.swing.JInternalFrame {
 
         public dtmProdutos() {
         }
+    }
+    public void limparCampos() {
+        
+        txtCodigo.setText("");
+        txtMercadoria.setText("");
+        txtValor.setText("");
+        txtEstoque.setText("");
+        
     }
 }

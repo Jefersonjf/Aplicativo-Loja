@@ -18,7 +18,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
      */
     public TelaPrincipal() {
         initComponents();
-        setExtendedState(MAXIMIZED_BOTH);
+        //setExtendedState(MAXIMIZED_BOTH);
         
     }
 
@@ -71,6 +71,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jMenuItem6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagem/zoom.png"))); // NOI18N
         jMenuItem6.setText("Pesquisar Usuario");
+        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem6ActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMenuItem6);
 
         jMenuBar1.add(jMenu1);
@@ -145,13 +150,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        // TODO add your handling code here:
         
-        TelaCadastroUsuario telaCadUser = new TelaCadastroUsuario();
+        TelaCadastroUsuario telaCadUser = new TelaCadastroUsuario(null);
         jDesktopPane1.add(telaCadUser);
         telaCadUser.setVisible(true);
-        
-        
+             
         
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
@@ -176,15 +179,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
         
         TelaConsultarProdutos telaConPro = new TelaConsultarProdutos();
         jDesktopPane1.add(telaConPro);
-        telaConPro.setVisible(true);
+        telaConPro.setVisible(true);  
               
-        
-                
-               
-
-                
-          
-      
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
@@ -195,6 +191,13 @@ public class TelaPrincipal extends javax.swing.JFrame {
         telaConCli.setVisible(true);
         
     }//GEN-LAST:event_jMenuItem5ActionPerformed
+
+    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
+       
+       TelaConsultarUsuario telaConUsu = new TelaConsultarUsuario();
+       jDesktopPane1.add(telaConUsu);
+       telaConUsu.setVisible(true);
+    }//GEN-LAST:event_jMenuItem6ActionPerformed
 
     /**
      * @param args the command line arguments
